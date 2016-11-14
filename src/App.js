@@ -90,7 +90,15 @@ class ProductTable extends React.Component {
 class CustomTextInput extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {value: ''}
+        //持有component的value
+        this.state = {value: ''};
+
+        this.focus = this.focus.bind(this);
+    }
+
+    focus() {
+        //持有component
+        this.textInput.focus();
     }
 
     render() {
@@ -100,10 +108,15 @@ class CustomTextInput extends React.Component {
             <div>
                 <input
                     type="text"
-                    ref={(input) => input.focus()}
+                    ref={(input) => this.textInput = input}
                     value={this.state.value}
                     onChange={(e) => {this.setState({value:e.target.value})}}
                 />
+                <input type="submit" onClick={()=>{
+                    console.log(this.state.value);
+                    console.log('=======');
+                    console.log(this.textInput.value)
+                }}/>
             </div>
         );
     }
