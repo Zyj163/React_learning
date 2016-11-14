@@ -25,6 +25,7 @@ import App from './App';
 import './index.css';
 
 ReactDOM.render(
-    <App />,
+    //<App />,
+    <MessageList messages={['123','2']}/>,
     document.getElementById('root')
 );
